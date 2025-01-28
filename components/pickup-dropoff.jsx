@@ -76,7 +76,7 @@ export default function PickupDropoff() {
           </div>
         </div>
 
-        <div className="relative md:my-0">
+        <div className="relative my-8 md:my-0">
           <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
             <Button 
               size="icon" 
