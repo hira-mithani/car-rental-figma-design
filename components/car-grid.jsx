@@ -171,17 +171,17 @@ export default function CarGrid({ filters }) {
             </div>
 
             <div className="grid grid-cols-3 gap-4 mb-4">
-              <div className="flex items-center gap-1 text-[#90A3BF]">
-                <Gauge className="h-4 w-4" />
-                <span className="text-sm">{car.specs.fuel}</span>
+              <div className="flex items-center gap-2 text-[#90A3BF]">
+                <Gauge className="h-5 w-5 shrink-0" />
+                <span className="text-sm whitespace-nowrap">{car.specs.fuel}</span>
               </div>
-              <div className="flex items-center gap-1 text-[#90A3BF]">
-                <Settings className="h-4 w-4" />
-                <span className="text-sm">{car.specs.transmission}</span>
+              <div className="flex items-center gap-2 text-[#90A3BF]">
+                <Settings className="h-5 w-5 shrink-0" />
+                <span className="text-sm whitespace-nowrap">{car.specs.transmission}</span>
               </div>
-              <div className="flex items-center gap-1 text-[#90A3BF]">
-                <Users className="h-4 w-4" />
-                <span className="text-sm">{car.specs.capacity}</span>
+              <div className="flex items-center gap-2 text-[#90A3BF]">
+                <Users className="h-5 w-5 shrink-0" />
+                <span className="text-sm whitespace-nowrap">{car.specs.capacity}</span>
               </div>
             </div>
 
