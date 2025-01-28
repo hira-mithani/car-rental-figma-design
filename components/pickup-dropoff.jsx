@@ -36,8 +36,9 @@ export default function PickupDropoff() {
       </div>
 
       {/* Pickup and Dropoff Form - Different layouts for mobile and desktop */}
-      <div className="md:grid md:grid-cols-2 md:gap-4">
-        <div className="space-y-4">
+      <div className="flex flex-col md:flex-row md:gap-4 relative">
+        {/* Pickup Section */}
+        <div className="flex-1 space-y-4">
           <div className="flex items-center gap-2">
             <div className="h-4 w-4 rounded-full bg-[#3563E9]" />
             <span className="font-semibold">Pick - Up</span>
@@ -76,18 +77,18 @@ export default function PickupDropoff() {
           </div>
         </div>
 
-        <div className="relative my-8 md:my-0">
-          <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-            <Button 
-              size="icon" 
-              className="h-10 w-10 rounded-lg bg-[#3563E9] hover:bg-[#3563E9]/90"
-            >
-              <ArrowUpDown className="h-4 w-4" />
-            </Button>
-          </div>
+        {/* Switch Button */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 md:relative md:left-auto md:top-auto md:transform-none md:flex md:items-center">
+          <Button 
+            size="icon" 
+            className="h-10 w-10 rounded-lg bg-[#3563E9] hover:bg-[#3563E9]/90"
+          >
+            <ArrowUpDown className="h-4 w-4" />
+          </Button>
         </div>
 
-        <div className="space-y-4 md:col-start-2">
+        {/* Drop-off Section */}
+        <div className="flex-1 space-y-4">
           <div className="flex items-center gap-2">
             <div className="h-4 w-4 rounded-full bg-[#3563E9]" />
             <span className="font-semibold">Drop - Off</span>
