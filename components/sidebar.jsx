@@ -38,51 +38,69 @@ export default function Sidebar({ filters, setFilters }) {
   }
 
   return (
-    <div className="w-full lg:w-64 space-y-8 bg-white p-6 rounded-lg h-fit">
-      <div>
-        <h3 className="text-sm font-semibold mb-4">TYPE</h3>
-        <div className="space-y-4">
-          {types.map(({ id, label, count }) => (
-            <div key={id} className="flex items-center gap-2">
-              <Checkbox id={id} checked={filters.type.includes(id)} onCheckedChange={() => handleTypeChange(id)} />
-              <Label htmlFor={id} className="flex-1">
-                {label} <span className="text-gray-500">({count})</span>
-              </Label>
+    <div className="md:w-64 mb-8 md:mb-0">
+      <div className="bg-white rounded-[10px] p-4">
+        <div className="space-y-6">
+          {/* Type Section */}
+          <div>
+            <h3 className="font-semibold mb-4">TYPE</h3>
+            <div className="space-y-4">
+              {types.map((type) => (
+                <div key={type.id} className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Checkbox 
+                      id={type.id}
+                      checked={filters.type.includes(type.id)}
+                      onCheckedChange={() => handleTypeChange(type.id)}
+                      className="border-[#90A3BF] data-[state=checked]:bg-[#3563E9] data-[state=checked]:border-[#3563E9]"
+                    />
+                    <Label htmlFor={type.id} className="text-sm text-[#596780]">{type.label}</Label>
+                  </div>
+                  <span className="text-sm text-[#90A3BF]">{type.count}</span>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
 
-      <div>
-        <h3 className="text-sm font-semibold mb-4">CAPACITY</h3>
-        <div className="space-y-4">
-          {capacities.map(({ id, label, count }) => (
-            <div key={id} className="flex items-center gap-2">
-              <Checkbox
-                id={`capacity-${id}`}
-                checked={filters.capacity.includes(id)}
-                onCheckedChange={() => handleCapacityChange(id)}
+          {/* Capacity Section */}
+          <div>
+            <h3 className="font-semibold mb-4">CAPACITY</h3>
+            <div className="space-y-4">
+              {capacities.map((capacity) => (
+                <div key={capacity.id} className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Checkbox 
+                      id={capacity.id}
+                      checked={filters.capacity.includes(capacity.id)}
+                      onCheckedChange={() => handleCapacityChange(capacity.id)}
+                      className="border-[#90A3BF] data-[state=checked]:bg-[#3563E9] data-[state=checked]:border-[#3563E9]"
+                    />
+                    <Label htmlFor={capacity.id} className="text-sm text-[#596780]">{capacity.label}</Label>
+                  </div>
+                  <span className="text-sm text-[#90A3BF]">{capacity.count}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Price Range Section */}
+          <div>
+            <h3 className="font-semibold mb-4">PRICE</h3>
+            <div className="space-y-4">
+              <div className="flex justify-between text-sm text-[#90A3BF]">
+                <span>Max. ${filters.price}</span>
+              </div>
+              <Slider
+                value={[filters.price]}
+                onValueChange={([value]) => setFilters((prev) => ({ ...prev, price: value }))}
+                max={100}
+                step={1}
+                className="[&_[role=slider]]:bg-[#3563E9]"
               />
-              <Label htmlFor={`capacity-${id}`} className="flex-1">
-                {label} <span className="text-gray-500">({count})</span>
-              </Label>
             </div>
-          ))}
+          </div>
         </div>
-      </div>
-
-      <div>
-        <h3 className="text-sm font-semibold mb-4">PRICE</h3>
-        <Slider
-          value={[filters.price]}
-          max={100}
-          step={1}
-          className="w-full"
-          onValueChange={([value]) => setFilters((prev) => ({ ...prev, price: value }))}
-        />
-        <p className="mt-2 text-sm">Max. ${filters.price.toFixed(2)}</p>
       </div>
     </div>
   )
 }
-

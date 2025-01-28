@@ -7,7 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 export default function Header({ onSearch }) {
   return (
-    <header className="border-b bg-white sticky top-0 z-50">
+    <header className="hidden md:block border-b bg-white sticky top-0 z-50">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between gap-4">
         <div className="flex items-center gap-8 flex-1">
           <h1 className="text-[#3563E9] text-2xl font-bold">MORENT</h1>
@@ -21,19 +21,18 @@ export default function Header({ onSearch }) {
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <Button variant="ghost" size="icon" className="hidden sm:inline-flex">
+          <Button variant="ghost" size="icon">
             <Heart className="h-5 w-5" />
           </Button>
-          <Button variant="ghost" size="icon" className="relative hidden sm:inline-flex">
+          <Button variant="ghost" size="icon">
             <Bell className="h-5 w-5" />
-            <span className="absolute top-2 right-2 h-2 w-2 bg-red-500 rounded-full" />
           </Button>
-          <Button variant="ghost" size="icon" className="hidden sm:inline-flex">
+          <Button variant="ghost" size="icon">
             <Settings className="h-5 w-5" />
           </Button>
           <Avatar>
             <AvatarImage
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sss.PNG-oXp2aOO1i3VtKAgjL9976OCLmrNOrr.png"
+              src="/cars/dp.png"
               alt="User"
             />
             <AvatarFallback>U</AvatarFallback>
@@ -43,4 +42,3 @@ export default function Header({ onSearch }) {
     </header>
   )
 }
-
